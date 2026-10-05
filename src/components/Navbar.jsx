@@ -33,32 +33,44 @@ export default function Navbar() {
     <>
       <nav
         className={`sticky top-0 z-50 bg-navy/90 backdrop-blur-md transition-[border-color,box-shadow] duration-300 ${
-          scrolled ? 'border-b border-linedark shadow-[0_4px_20px_-10px_rgba(0,0,0,.4)]' : 'border-b border-transparent'
+          scrolled
+            ? 'border-b border-linedark shadow-[0_4px_20px_-10px_rgba(0,0,0,.4)]'
+            : 'border-b border-transparent'
         }`}
       >
-        <Container className={`flex items-center justify-between gap-6 transition-[padding] duration-300 ${scrolled ? 'py-2.5' : 'py-4'}`}>
-          <a href="#top" className="flex items-center gap-2 font-display text-lg font-bold text-white">
+        <Container
+          className={`flex items-center justify-between gap-6 transition-[padding] duration-300 ${
+            scrolled ? 'py-2.5' : 'py-4'
+          }`}
+        >
+          <a
+            href="#top"
+            className="flex items-center gap-2 font-display text-lg font-bold text-white"
+          >
             <BrandMark />
             JAVUNO
           </a>
 
           <div className="hidden items-center gap-7 text-[14.5px] font-medium text-graycool md:flex">
             {navLinks.map((link) => (
-              <a key={link.label} href={link.href} className="transition-colors hover:text-accent-soft">
+              <a
+                key={link.label}
+                href={link.href}
+                className="transition-colors hover:text-accent-soft"
+              >
                 {link.label}
               </a>
             ))}
           </div>
 
-          <div className="hidden items-center gap-5 md:flex">
-            <a href="#" className="text-[14.5px] font-semibold text-graycool hover:text-white">
-              Log in
-            </a>
+          {/* Desktop CTA */}
+          <div className="hidden md:flex">
             <Button href="#pricing" variant="primary">
               Get Started Free
             </Button>
           </div>
 
+          {/* Mobile Menu Button */}
           <button
             className="p-1.5 md:hidden"
             aria-label="Open menu"
@@ -76,10 +88,15 @@ export default function Navbar() {
               <BrandMark />
               JAVUNO
             </span>
-            <button aria-label="Close menu" onClick={() => setOpen(false)}>
+
+            <button
+              aria-label="Close menu"
+              onClick={() => setOpen(false)}
+            >
               <X />
             </button>
           </div>
+
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -90,11 +107,14 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+
           <div className="mt-7 flex flex-col gap-3">
-            <Button variant="ghostDark" className="w-full">
-              Log in
-            </Button>
-            <Button href="#pricing" variant="primary" className="w-full" onClick={() => setOpen(false)}>
+            <Button
+              href="#pricing"
+              variant="primary"
+              className="w-full"
+              onClick={() => setOpen(false)}
+            >
               Get Started Free
             </Button>
           </div>

@@ -15,14 +15,19 @@ function FAQItem({ q, a, isOpen, onToggle }) {
         {q}
         <Plus
           size={20}
-          className={`ml-4 flex-none text-brand transition-transform duration-200 ${isOpen ? 'rotate-45' : ''}`}
+          className={`ml-4 flex-none text-brand transition-transform duration-200 ${
+            isOpen ? 'rotate-45' : ''
+          }`}
         />
       </button>
+
       <div
         className="overflow-hidden transition-[max-height] duration-300"
         style={{ maxHeight: isOpen ? '240px' : '0px' }}
       >
-        <p className="max-w-[620px] pb-5 text-[15px] leading-relaxed text-inksoft">{a}</p>
+        <p className="max-w-[620px] pb-5 text-[15px] leading-relaxed text-inksoft">
+          {a}
+        </p>
       </div>
     </div>
   )
@@ -34,18 +39,27 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-16">
       <Container>
-        <SectionHeading title="Questions, answered." />
-        <div className="max-w-[760px]">
+
+        {/* FAQ TITLE - CENTERED */}
+        <div className="flex justify-center text-center">
+          <SectionHeading title="Questions, answered." center />
+        </div>
+
+        {/* FAQ CONTENT - CENTERED BLOCK */}
+        <div className="mx-auto max-w-[760px]">
           {faqItems.map((item, i) => (
             <FAQItem
               key={item.q}
               q={item.q}
               a={item.a}
               isOpen={openIndex === i}
-              onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
+              onToggle={() =>
+                setOpenIndex(openIndex === i ? -1 : i)
+              }
             />
           ))}
         </div>
+
       </Container>
     </section>
   )
