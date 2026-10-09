@@ -6,9 +6,11 @@ import { navLinks } from '../data/siteData.js'
 
 function BrandMark() {
   return (
-    <span className="relative h-[26px] w-[26px] flex-none rounded-[7px] bg-gradient-to-br from-accent to-brand-deep">
-      <span className="absolute inset-[6px] rounded-bl-[6px] border-b-2 border-l-2 border-white" />
-    </span>
+    <img
+      src="/src/assets/images/javuno-logo.png"
+      alt="JAVUNO Logo"
+      className="h-[30px] w-[30px] flex-none rounded-[7px] object-contain"
+    />
   )
 }
 
